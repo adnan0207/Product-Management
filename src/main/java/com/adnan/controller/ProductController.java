@@ -26,6 +26,7 @@ public class ProductController {
 	@Autowired
 	private ModelMapper modelMapper;
 
+//	http://127.0.0.1:8086/api/v1/addProduct
 	@PostMapping("api/v1/addProduct")
 	public ProductDTO createProduct(@RequestBody Product product) {
 
@@ -36,6 +37,7 @@ public class ProductController {
 	}
 
 	// using path variable
+//	http://127.0.0.1:8086/api/v1/findProduct/2
 	@GetMapping("api/v1/findProduct/{productId}")
 	public ProductDTO findProductByPathVariable(@PathVariable int productId) {
 
@@ -46,6 +48,7 @@ public class ProductController {
 	}
 
 	// using request parameters
+//	http://127.0.0.1:8086/api/v1/findProduct?id=2
 	@GetMapping("api/v1/findProduct")
 	public ProductDTO findProductByRequestParam(@RequestParam(name="id") int productId) {
 
@@ -57,6 +60,7 @@ public class ProductController {
 
 	// using request parameters and path variable
 	// request param is optional
+//	http://127.0.0.1:8086/api/v1/findProduct/1/dual?productName=watchsfdgd
 	@GetMapping("api/v1/findProduct/{productId}/dual")
 	public ProductDTO findProductByRequestParamAndPathVariable(@RequestParam(name="productName") String name, @PathVariable int productId) {
 		
@@ -66,6 +70,7 @@ public class ProductController {
 		
 	}
 
+//	http://127.0.0.1:8086/api/v1/updateProduct/2
 	@PutMapping("api/v1/updateProduct/{productId}")
 	public boolean updateProduct(@PathVariable int productId, @RequestBody Product product) {
 
@@ -73,6 +78,7 @@ public class ProductController {
 		return isProductUpdated;		
 	}
 
+//	http://127.0.0.1:8086/api/v1/removeProduct/3
 	@DeleteMapping("api/v1/removeProduct/{productId}")
 	public boolean deleteProduct(@PathVariable int productId) {
 
